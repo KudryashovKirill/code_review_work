@@ -27,20 +27,4 @@ public class Calculator {
         int x = div(right, a);
         return x;
     }
-    public int solverQuadratic() {
-        int a = 1;
-        int b = -3;
-        int c = 2;
-
-        int D = dif(times(b, b), times(4, times(a, c)));
-
-        if (D < 0) {
-            return 0;
-        }
-
-        int sqrtD = (int) Math.sqrt(D);
-        int x1 = div(add(-b, sqrtD), times(2, a));
-
-        return x1;
-    }
 }
