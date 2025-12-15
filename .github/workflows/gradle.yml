@@ -20,5 +20,8 @@ jobs:
           java-version: 17
           distribution: temurin
 
-      - name: Build and test with Maven
-        run: gradlew.bat build
+      - name: Make gradlew executable
+        run: chmod +x gradlew
+
+      - name: Build with Gradle
+        run: ./gradlew build
