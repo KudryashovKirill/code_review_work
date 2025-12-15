@@ -1,13 +1,15 @@
-name: Java CI (Задание 1)
+
+name: Java CI (Задания 1–3)
 
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+
   schedule:
-    - cron: "30 12 * * 3" 
-    - cron: "0 22 * * 5"   
+    - cron: "30 12 * * 3"
+    - cron: "0 22 * * 5"
 
 jobs:
   build:
@@ -28,14 +30,9 @@ jobs:
           java-version: ${{ matrix.java }}
           distribution: zulu
 
-      - name: Grant execute permission for gradlew (Linux/macOS)
-        if: runner.os != 'Windows'
+
+      - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
       - name: Build and test with Gradle
-        run: |
-          if [ "$RUNNER_OS" == "Windows" ]; then
-            gradlew.bat build
-          else
-            ./gradlew build
-          fi
+        run: ./gradlew build
